@@ -26,25 +26,25 @@ const userProfileSchema = new mongoose.Schema({
     type: String,
     trim: true,
     default: "",
-    // match: [
-    //   /^https?:\/\/(www\.)?github\.com\/.+$/,
-    //   "Please enter a valid GitHub URL",
-    // ],
+    match: [
+      /^https?:\/\/(www\.)?github\.com\/.+$/,
+      "Please enter a valid GitHub URL",
+    ],
   },
   linkedin: {
     type: String,
     trim: true,
     default: "",
-    // match: [
-    //   /^https?:\/\/(www\.)?linkedin\.com\/.+$/,
-    //   "Please enter a valid LinkedIn URL",
-    // ],
+    match: [
+      /^https?:\/\/(www\.)?linkedin\.com\/.+$/,
+      "Please enter a valid LinkedIn URL",
+    ],
   },
   website: {
     type: String,
     trim: true,
     default: "",
-    // match: [/^https?:\/\/.+$/, "Please enter a valid website URL"],
+    match: [/^https?:\/\/.+$/, "Please enter a valid website URL"],
   },
   createdAt: {
     type: Date,

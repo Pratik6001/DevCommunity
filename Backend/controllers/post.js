@@ -40,7 +40,7 @@ exports.getPosts = async (req, res) => {
     const posts = await Post.find(query)
       .sort({ createdAt: -1 })
       .skip(skip)
-      .limit(limit)
+      // .limit(limit)
       .populate("owner", "name avatar")
       .populate({
         path: "comments",

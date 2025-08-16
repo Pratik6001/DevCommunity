@@ -130,18 +130,17 @@ export default function Home() {
 
   const [seconddata, setdata] = useState([]);
   useEffect(() => {
-    const fetchdata = async () => {
+    const fetchFeed = async () => {
       try {
         const res = await axios.get(
           `${import.meta.env.VITE_SERVER_URL}/api/get-all-data`
         );
         setdata(res.data.data);
-        console.log(res, "getting");
       } catch (error) {
         console.log(error);
       }
     };
-    fetchdata();
+    fetchFeed();
   }, []);
 
   return (
