@@ -201,7 +201,6 @@ MongoDB Atlas & Redis Cloud (database & caching)
 
 Render / Vercel (deployment)
 
-{}
 ## Setup Instructions
 Clone the Repository:
 https://github.com/Pratik6001/DevCommunity.git
