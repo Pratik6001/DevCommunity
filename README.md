@@ -1,134 +1,212 @@
-DeveloperFeed API
-Overview
-DeveloperFeed is a social platform for developers to share posts, comment, and connect via real-time chat. This repository contains the backend API built with Node.js, Express, MongoDB, Redis (cloud-based), and Socket.IO for real-time communication. The API supports user authentication, post creation, commenting, and real-time messaging.
-Prerequisites
 
-Node.js: v16 or higher
-MongoDB: Cloud (MongoDB Atlas) or local instance
-Redis: Cloud-based Redis instance (e.g., Redis Cloud, AWS ElastiCache)
-Socket.IO: For real-time chat
-Postman: For API testing
-Git: For cloning the repository
+# Project Title
 
-Setup Instructions
+![Node.js](https://img.shields.io/badge/node-v16+-green)
+![MongoDB](https://img.shields.io/badge/mongodb-cloud-blue)
+![Redis](https://img.shields.io/badge/redis-cloud-orange)
+![License](https://img.shields.io/badge/license-MIT-brightgreen)
 
+**DeveloperFeed** is a social platform for developers to share posts, comment, and connect via real-time chat. This repository contains both **backend** and **frontend** code. The backend uses **Node.js, Express, MongoDB, Redis (cloud)**, and **Socket.IO**, while the frontend is built with **React.js**.
+
+## Screenshots
+![image alt](https://github.com/Pratik6001/DevCommunity/blob/6c23339b5290f3a5c7b7ae963e69fd722d985047/Screenshots/upload%202025-08-17%20092816.png)
+![image alt](https://github.com/Pratik6001/DevCommunity/blob/6c23339b5290f3a5c7b7ae963e69fd722d985047/Screenshots/upload%202025-08-17%20093006.png)
+
+## API Reference
+
+#### Get all items
+| Method | Endpoint               | Auth | Description                       |
+| ------ | ---------------------- | ---- | --------------------------------- |
+| POST   | /signup                | No   | Register a new user               |
+| POST   | /login                 | No   | Authenticate a user               |
+| POST   | /send-reset-email      | Yes  | Send password reset email         |
+| POST   | /get-feed-data         | No   | Fetch feed data                   |
+| GET    | /get-all-data          | No   | Retrieve all posts                |
+| POST   | /create-post           | Yes  | Create a new post                 |
+| POST   | /\:postId/comments     | Yes  | Add a comment to a post           |
+| GET    | /\:postId/comments     | No   | View comments on a post           |
+| GET    | /get-all-user          | Yes  | Fetch all users                   |
+| GET    | /messages/\:receiverId | Yes  | Get messages for a chat room      |
+| POST   | /create-profile        | Yes  | Create/update profile with avatar |
+
+
+
+## Authors
+
+- [@Pratik6001](https://github.com/Pratik6001)
+
+
+## Badges
+
+Add badges from somewhere like: [shields.io](https://shields.io/)
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+
+
+## Demo
+
+https://dev-community-five.vercel.app/
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+| Variable                                       | Description                                                         |
+| ---------------------------------------------- | ------------------------------------------------------------------- |
+| MONGODB\_URI                                   | MongoDB connection string                                           |
+| PORT                                           | Server port (default: 3000)                                         |
+| JWT\_SECRET, JWT\_REFRESH\_SECRET              | JWT authentication secrets                                          |
+| NODE\_ENV                                      | Environment (development, production)                               |
+| API\_KEY                                       | External service API key                                            |
+| FRONTEND\_URL                                  | Frontend URL (e.g., [http://localhost:5173](http://localhost:5173)) |
+| REDIS\_URL                                     | Cloud Redis connection URL (preferred)                              |
+| REDIS\_PASS                                    | Redis password                                                      |
+| SMTP\_HOST, SMTP\_PORT, SMTP\_USER, SMTP\_PASS | SMTP credentials for email                                          |
+| SOCKET\_IO\_ORIGIN                             | CORS origin for Socket.IO (frontend URL)                            |
+| VITE\_API\_URL                                 | Frontend: Backend API URL                                           |
+
+
+
+## Features
+
+Authentication & Profiles
+
+🔑 User signup/login with JWT tokens
+
+👤 Create & update user profiles (bio, avatar, social links)
+
+🔍 Fetch all users (with authentication middleware)
+
+Posts & Feeds
+
+📝 Create, update, delete posts
+
+📌 Each post supports title, description, codeSnippet, tags
+
+🔎 Advanced search & filters using MongoDB aggregation pipeline
+
+❤️ Like/unlike posts
+
+💬 Add comments & replies
+
+Comments & Discussions
+
+Add, edit, delete comments on posts
+
+Nested replies for discussions
+
+Real-time updates via Socket.IO
+
+Chat & Messaging
+
+💬 One-to-one messaging between developers
+
+Fetch messages by room ID (/messages/:roomId)
+
+Socket.IO integration for real-time message delivery
+
+Online/offline status tracking
+
+Notifications
+
+🔔 Event-driven notifications for likes, comments, and messages
+
+Real-time push with Socket.IO
+
+Performance & Security
+
+🚦 Rate limiting using Redis middleware
+
+⚡ Optimized queries with MongoDB indexes
+
+🔐 Secure routes with authenticateToken middleware
+
+Developer-Friendly API
+
+📡 RESTful API endpoints for all major features
+
+🌍 Query parameters for pagination & filtering (e.g., ?page=1&limit=10&tags=javascript,nodejs)
+
+
+
+## 🚀 About Me
+I'm a full stack developer...
+
+
+## Installation
+
+Install my-project with npm
+
+```bash
+  cd Backend
+  npm Install
+  npm run dev
+  cd Frontend
+  npm install
+  rpm run dev
+```
+    
+## Prerequisites
+
+- **Node.js:** v16 or higher  
+- **MongoDB:** Cloud (Atlas) or local instance  
+- **Redis:** Cloud instance (Redis Cloud, Upstash)  
+- **Socket.IO:** For real-time chat  
+- **Postman:** For API testing  
+- **Git:** For cloning the repository 
+
+## ⚡ Tech Stack
+
+## Frontend
+
+React.js (with Redux Toolkit for state management)
+
+Vite (fast build tool)
+
+Tailwind CSS (for modern styling)
+
+Axios (for API requests)
+
+Socket.IO Client (for real-time communication)
+
+## Backend
+
+Node.js with Express.js
+
+MongoDB with Mongoose (Database)
+
+Redis (for caching, sessions & rate limiting)
+
+Socket.IO (real-time chat & notifications)
+
+Authentication & Security
+
+JWT (JSON Web Tokens) for secure authentication
+
+bcrypt.js (password hashing)
+
+Helmet & CORS (security middlewares)
+
+## Tools & Deployment
+
+Postman (API testing)
+
+Nodemon (dev auto-restart)
+
+Git & GitHub (Version control)
+
+MongoDB Atlas & Redis Cloud (database & caching)
+
+Render / Vercel (deployment)
+
+{}
+## Setup Instructions
 Clone the Repository:
 https://github.com/Pratik6001/DevCommunity.git
 Cd Backend
-
-
 Install Dependencies:
 npm install
-
-Ensure socket.io is included in package.json for real-time chat.
-
 Configure Environment Variables:
-
 Copy .env.example to  .env
-
-
-Update .env with your configuration, including MongoDB URI, cloud Redis connection details, JWT secrets, and SMTP credentials.
-
-
-Set Up MongoDB and Redis:
-
-Ensure MongoDB is running (local or Atlas).
-For Redis, obtain your cloud Redis connection details (e.g., from Redis Cloud dashboard) and update REDIS_URL or REDIS_HOST, REDIS_PORT, and REDIS_PASS in .env. If Redis is not used, configure the app to bypass Redis caching.
-Redis is used for caching chat session data.
-
-
-Set Up Socket.IO for Real-Time Chat:
-
-The API uses Socket.IO for real-time messaging. Ensure the frontend client connects to the WebSocket server at http://localhost:3000 (or your deployed URL).
-Example Socket.IO client setup (in frontend):import io from 'socket.io-client';
-const socket = io('http://localhost:3000');
-socket.on('message', (msg) => {
-  console.log('New message:', msg);
-});
-
-
-
-
-Run the Application:
-
-Development mode (with Nodemon):npm run dev
-
-
-Production mode:npm start
-
-
-
-
-Test the API:
-
-Import the provided Postman collection (DeveloperFeed_API.postman_collection.json) into Postman.
-Test REST endpoints (/signup, /login, /create-post, etc.) and simulate WebSocket messages using a Socket.IO client or Postman’s WebSocket feature.
-
-
-
-Environment Variables
-See .env.example for all required variables:
-
-MONGODB_URI: MongoDB connection string
-PORT: Server port (default: 3000)
-JWT_SECRET, JWT_REFRESH_SECRET: Secrets for JWT authentication
-NODE_ENV: Environment (e.g., development, production)
-API_KEY: API key for external services
-FRONTEND_URL: Frontend URL (e.g., http://localhost:5173)
-REDIS_URL: Cloud Redis connection URL (preferred)
-REDIS_PASS: Redis password (required for cloud Redis)
-SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS: SMTP for email (e.g., Gmail)
-SOCKET_IO_ORIGIN: CORS origin for Socket.IO (e.g., http://localhost:5173)
-
-API Endpoints
-
-POST /signup: Register a new user
-POST /login: Authenticate a user
-POST /send-reset-email: Send password reset email (authenticated)
-POST /get-feed-data: Fetch feed data
-GET /get-all-data: Retrieve all posts
-POST /create-post: Create a new post (authenticated)
-POST /:postId/comments: Add a comment to a post (authenticated)
-GET /:postId/comments: View comments on a post
-GET /get-all-user: Fetch all users (authenticated)
-GET /messages/:receiverId: Get messages for a chat room (authenticated)
-POST /create-profile: Create/update user profile with avatar upload (authenticated)
-WebSocket /message: Send/receive real-time messages (handled via Socket.IO)
-
-Real-Time Chat
-
-Technology: Socket.IO for WebSocket-based real-time messaging.
-Events:
-joinRoom: Join a chat room (e.g., { userId, receiverId }).
-message: Send a message (e.g., { roomId, senderId, content }).
-typing: Indicate typing status (e.g., { roomId, userId }).
-
-
-Setup:
-Server: Socket.IO is integrated with the Express server.
-Client: Connect to the Socket.IO server and handle events (see setup example above).
-
-
-Persistence: Messages are stored in MongoDB and cached in Redis for fast retrieval.
-
-Postman Collection
-The DeveloperFeed_API.postman_collection.json file includes requests for testing REST endpoints. For WebSocket testing, use a Socket.IO client or Postman’s WebSocket feature with the /message namespace. Set the baseUrl environment variable to http://localhost:3000 (or your deployed URL).
-Screenshots/Demo Video
-
-Screenshots: See the /screenshots 
-
-Troubleshooting
-
-MongoDB Connection Issues: Verify MONGODB_URI and ensure MongoDB is running. Check DB_RETRY_DELAY and DB_MAX_RETRIES.
-Redis Errors: Verify REDIS_URL or REDIS_HOST, REDIS_PORT, REDIS_PASS. Ensure your cloud Redis instance is accessible.
-Socket.IO Issues: Check SOCKET_IO_ORIGIN for CORS settings. Ensure the frontend URL matches.
-SMTP Issues: Ensure SMTP_USER and SMTP_PASS are correct (use an app-specific password for Gmail).
-
-Contributing
-
-Fork the repository.
-Create a feature branch (git checkout -b feature/your-feature).
-Commit changes (git commit -m "Add your feature").
-Push to the branch (git push origin feature/your-feature).
-Open a pull request.
-
